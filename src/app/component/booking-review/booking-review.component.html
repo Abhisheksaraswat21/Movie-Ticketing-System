@@ -1,0 +1,10 @@
+<div>
+  <h2>Booking Review</h2>
+  <div>
+    <p><strong>Movie:</strong> {{ booking.movieTitle }}</p>
+    <p><strong>Showtime:</strong> {{ booking.showtimeDateTime }}</p>
+    <p><strong>Seats:</strong> {{ booking.seats }}</p>
+    <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+  </div>
+  <button (click)="confirmBooking()">Confirm Booking</button>
+</div>

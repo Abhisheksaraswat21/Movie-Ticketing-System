@@ -1,0 +1,15 @@
+<div class="seat-selection-container">
+  <div *ngFor="let row of rows" class="seat-row">
+    <div *ngFor="let seat of row" class="seat">
+      <button
+        class="seat-button"
+        [disabled]="isSeatSelected(seat)"
+        [ngClass]="{ selected: isSeatSelected(seat) }"
+        (click)="toggleSeat(seat)"
+      >
+        {{ seat }}
+      </button>
+    </div>
+  </div>
+  <button class="book-button" (click)="bookTickets()">Book Tickets</button>
+</div>

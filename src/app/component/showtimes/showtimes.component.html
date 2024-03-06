@@ -1,0 +1,23 @@
+<div class="showtimes-container">
+  <h2 class="showtimes-title">Showtimes for {{ movieTitle }}</h2>
+  <div
+    class="showtime-card"
+    *ngFor="let showtime of showtimes"
+    [@fadeInAnimation]
+  >
+    <div class="showtime-info">
+      <div class="showtime-details">
+        <div class="showtime-date-time">
+          Date/Time: {{ showtime.dateTime | date : "medium" }}
+        </div>
+        <div class="showtime-seats">
+          Seats Available: {{ showtime.seatsAvailable }}
+        </div>
+      </div>
+      <button class="select-button" (click)="selectShowtime(showtime)">
+        Select Showtime
+      </button>
+    </div>
+    <hr class="divider" />
+  </div>
+</div>

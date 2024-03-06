@@ -1,0 +1,14 @@
+<div *ngIf="bookings.length > 0; else noBookings">
+  <h2>Your Booking History</h2>
+  <div *ngFor="let booking of bookings">
+    <div>Movie: {{ booking.movieTitle }}</div>
+    <div>Showtime: {{ booking.showtimeDateTime }}</div>
+    <div>Seats: {{ booking.seats }}</div>
+    <div>Total Price: {{ booking.totalPrice }}</div>
+    <hr />
+  </div>
+</div>
+
+<ng-template #noBookings>
+  <p>No bookings found.</p>
+</ng-template>

@@ -1,0 +1,37 @@
+<div class="admin-dashboard">
+  <h2 class="text-[48px]">Admin Dashboard</h2>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+  <div class="section">
+    <h3>Movies</h3>
+
+    <ul>
+      <li *ngFor="let movie of movies" class="movie-item">
+        <span>{{ movie.title }}</span>
+        <div class="actions">
+          <button class="edit-btn" (click)="editMovie(movie)">Edit</button>
+          <button class="delete-btn" (click)="deleteMovie(movie.id)">
+            Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+    <button class="add-btn" (click)="addMovie()">Add Movie</button>
+  </div>
+  <div class="section">
+    <h3>Showtimes</h3>
+    <ul>
+      <li *ngFor="let showtime of showtimes" class="showtime-item">
+        <span>{{ showtime.dateTime }}</span>
+        <div class="actions">
+          <button class="edit-btn" (click)="editShowtime(showtime)">
+            Edit
+          </button>
+          <button class="delete-btn" (click)="deleteShowtime(showtime.id)">
+            Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+    <button class="add-btn" (click)="addShowtime()">Add Showtime</button>
+  </div>
+</div>
