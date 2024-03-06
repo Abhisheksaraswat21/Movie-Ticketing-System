@@ -11,6 +11,7 @@ import { AuthService } from '../../Services/auth.service';
 export class HomeComponent implements OnInit {
   movies: any[] = [];
 
+  userLoggedIn: boolean = false;
   constructor(
     private movieService: MovieService,
     private router: Router,
@@ -19,15 +20,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe((movies) => (this.movies = movies));
+    this.userLoggedIn = !!this.authService.getCurrentUser();
   }
 
   viewMovieDetails(movieId: number): void {
     this.router.navigate(['/movie-details', movieId]);
-  }
-  viewMovieReviews(movieId: number): void {
-    console.log(!!this.authService.getCurrentUser());
-
-    this.router.navigate(['/movie-reviews', movieId]);
   }
 
   logout() {

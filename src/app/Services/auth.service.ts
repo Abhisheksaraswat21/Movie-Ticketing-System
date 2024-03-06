@@ -9,14 +9,14 @@ export class AuthService {
   private users: any[] = [
     {
       id: 1,
-      name: 'User 1',
-      email: 'user1@example.com',
+      name: 'Abhinav',
+      email: 'abhinav@gmail.com',
       password: 'password1',
     },
     {
       id: 2,
-      name: 'User 2',
-      email: 'user2@example.com',
+      name: 'Abhishek',
+      email: 'abhishek@gmail.com',
       password: 'password2',
     },
   ];

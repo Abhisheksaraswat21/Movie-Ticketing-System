@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShowtimeService } from '../../Services/showtime.service';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'app-showtimes',
@@ -10,10 +11,12 @@ import { ShowtimeService } from '../../Services/showtime.service';
 export class ShowtimesComponent implements OnInit {
   @Input() movieId: number = 0;
   @Input() movieTitle: string = '';
+  userLoggedIn: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private showtimeService: ShowtimeService
+    private showtimeService: ShowtimeService,
+    private authService: AuthService
   ) {}
 
   showtimes: any[] = [];
@@ -22,6 +25,7 @@ export class ShowtimesComponent implements OnInit {
     // @ts-ignore
     console.log('hello');
     this.getShowtimesForMovie(this.movieId);
+    this.userLoggedIn = this.authService.getCurrentUser();
   }
 
   getShowtimesForMovie(movieId: number): void {

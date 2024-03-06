@@ -1,10 +1,6 @@
 <div class="showtimes-container">
   <h2 class="showtimes-title">Showtimes for {{ movieTitle }}</h2>
-  <div
-    class="showtime-card"
-    *ngFor="let showtime of showtimes"
-    [@fadeInAnimation]
-  >
+  <div class="showtime-card" *ngFor="let showtime of showtimes">
     <div class="showtime-info">
       <div class="showtime-details">
         <div class="showtime-date-time">
@@ -14,8 +10,15 @@
           Seats Available: {{ showtime.seatsAvailable }}
         </div>
       </div>
-      <button class="select-button" (click)="selectShowtime(showtime)">
+      <button
+        *ngIf="userLoggedIn"
+        class="select-button"
+        (click)="selectShowtime(showtime)"
+      >
         Select Showtime
+      </button>
+      <button class="select-button" routerLink="/login" *ngIf="!userLoggedIn">
+        Login to Book Tickets
       </button>
     </div>
     <hr class="divider" />

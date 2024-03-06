@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { BookingService } from './booking.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShowtimeService {
+  constructor(private bookingService: BookingService) {}
   private showtimes: any[] = [
     {
       id: 1,
@@ -24,7 +26,7 @@ export class ShowtimeService {
       seatsAvailable: [
         ['A1', 'A2', 'A3'],
         ['B1', 'B2', 'B3'],
-        ['C1', 'C2', 'C3', 'c4'],
+        ['C1', 'C2', 'C3', 'C4'],
       ],
     },
     {

@@ -1,10 +1,28 @@
-<div>
-  <h2>Booking Review</h2>
-  <div>
-    <p><strong>Movie:</strong> {{ booking.movieTitle }}</p>
-    <p><strong>Showtime:</strong> {{ booking.showtimeDateTime }}</p>
-    <p><strong>Seats:</strong> {{ booking.seats }}</p>
-    <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+<div class="booking-review">
+  <h2 class="text-[48px]">Booking Review</h2>
+  <div *ngIf="booking && booking.length > 0">
+    <div *ngFor="let ticket of booking" class="booking-details">
+      <div class="booking-detail">
+        <span class="detail-label">Movie:</span>
+        <span class="detail-value">{{ ticket.movie.title }}</span>
+      </div>
+      <div class="booking-detail">
+        <span class="detail-label">Showtime:</span>
+        <span class="detail-value">{{
+          ticket.show.dateTime | date : "medium"
+        }}</span>
+      </div>
+      <div class="booking-detail">
+        <span class="detail-label">Seats:</span>
+        <span class="detail-value">{{ ticket.seats }}</span>
+      </div>
+      <div class="booking-detail">
+        <span class="detail-label">Total Price:</span>
+        <span class="detail-value">Rs. {{ ticket.totalPrice }}</span>
+      </div>
+    </div>
   </div>
-  <button (click)="confirmBooking()">Confirm Booking</button>
+  <div *ngIf="!booking || booking.length == 0">
+    <h2 class="text-32px]">No Bookings Available!</h2>
+  </div>
 </div>

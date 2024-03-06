@@ -1,3 +1,4 @@
+import { AuthService } from './../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../Services/movie.service';
